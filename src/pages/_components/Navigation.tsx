@@ -14,7 +14,10 @@ import {
 export function Navigation() {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
   const [selectId, setSelectId] = useState<number | null>(0);
-  const [subSelectId, setSubSelectId] = useState<number | null>(null);
+  const [subSelectId, setSubSelectId] = useState<{
+    parentIndex: number;
+    childIndex: number;
+  } | null>(null);
   const toggleExpanded = (index: number) => {
     setExpandedItems((prev) =>
       prev.includes(index)
@@ -90,6 +93,7 @@ export function Navigation() {
                 }`}
                 onClick={() => {
                   setSelectId(index);
+                  setSubSelectId(null); // 重置子菜单选中状态
                   item.child && item.child.length > 0 && toggleExpanded(index);
                 }}
               >
@@ -117,11 +121,14 @@ export function Navigation() {
                       <li
                         key={childIndex}
                         className={`w-full p-2 hover:bg-blue-50 hover:text-blue-600 cursor-pointer rounded-[5px] flex items-center gap-2 text-sm ${
-                          subSelectId === childIndex
+                          subSelectId?.parentIndex === index &&
+                          subSelectId?.childIndex === childIndex
                             ? "bg-blue-50 text-blue-700"
                             : ""
                         }`}
-                        onClick={() => setSubSelectId(childIndex)}
+                        onClick={() =>
+                          setSubSelectId({ parentIndex: index, childIndex })
+                        }
                       >
                         {childItem.name}
                       </li>
