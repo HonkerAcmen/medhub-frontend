@@ -85,7 +85,7 @@ export function Navigation() {
           {navMainData.map((item, index) => (
             <li key={index} className="w-full">
               <div
-                className={`w-full p-2 hover:bg-blue-50 hover:text-blue-600 cursor-pointer rounded-[5px] flex items-center gap-2 justify-between ${
+                className={`w-full p-2 mt-2 hover:bg-blue-50 hover:text-blue-600 cursor-pointer rounded-[5px] flex items-center gap-2 justify-between ${
                   selectId === index ? "bg-blue-50 text-blue-700" : ""
                 }`}
                 onClick={() => {
