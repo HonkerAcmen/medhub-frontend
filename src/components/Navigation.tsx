@@ -13,7 +13,7 @@ import {
 
 export function Navigation() {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
-  const [selectId, setSelectId] = useState<number | null>(0);
+  const [selectId, setSelectId] = useState<number | null>(1);
   const [subSelectId, setSubSelectId] = useState<{
     parentIndex: number;
     childIndex: number;
