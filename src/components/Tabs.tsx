@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-type TabsProps = {
+interface TabsProps {
   names: string[];
   onback: (idx: number) => void;
-};
+}
 
 export function Tabs({ names, onback }: TabsProps) {
   const [seleId, setSeleId] = useState(0);
@@ -31,7 +31,8 @@ export function Tabs({ names, onback }: TabsProps) {
 }
 
 /*
-
+const tabsName: string[] = ["预约挂号", "医生工作站", "门诊收费", "多元支付"];
+  const tabsIdx = 0;
 <Tabs
         names={tabsName}
         onback={(idx) => {
