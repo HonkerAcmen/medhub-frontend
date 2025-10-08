@@ -76,7 +76,7 @@ export function Navigation() {
   ];
 
   return (
-    <div className="flex items-center flex-col w-60 h-[100vh] shadow-sm bg-white">
+    <div className="flex items-center flex-col w-60 h-[100vh] shadow bg-white">
       <div className="pt-4 pb-4 pl-8 pr-8 font-bold border-b-1 border-gray-300 text-blue-600">
         Med Hub System
       </div>
