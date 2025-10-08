@@ -7,7 +7,7 @@ interface FormProps {
   heightClass?: string; // tailwindcss样式 eg: h-full, h-[600px]
   extra?: ReactNode; // header右侧自定义区域：操作按钮/状态
   footer?: ReactNode; // 底部操作区：提交/取消按钮等
-  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (e: FormEvent<HTMLFormElement>) => void; // 提交事件
 }
 
 export function Form({
