@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   AiOutlineNodeIndex,
   AiOutlineHome,
@@ -75,6 +75,12 @@ export function Navigation() {
     },
   ];
 
+  // 初始化导航栏默认选中
+  useEffect(() => {
+    setSubSelectId({ parentIndex: 1, childIndex: 0 });
+    toggleExpanded(1);
+  }, []);
+
   return (
     <div className="flex items-center flex-col w-60 h-[100vh] shadow bg-white">
       <div className="pt-4 pb-4 pl-8 pr-8 font-bold border-b-1 border-gray-300 text-blue-600">
@@ -93,7 +99,7 @@ export function Navigation() {
                 }`}
                 onClick={() => {
                   setSelectId(index);
-                  setSubSelectId(null); // 重置子菜单选中状态
+                  setSubSelectId({ parentIndex: index, childIndex: 0 }); // 重置子菜单选中状态
                   item.child && item.child.length > 0 && toggleExpanded(index);
                 }}
               >

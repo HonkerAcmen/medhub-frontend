@@ -4,7 +4,9 @@ export default function Home() {
   return (
     <div className="flex felx-row ">
       <Navigation />
-      <Header />
+      <div className="w-full">
+        <Header />
+      </div>
     </div>
   );
 }
