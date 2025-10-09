@@ -11,7 +11,11 @@ import {
   AiOutlineControl,
 } from "react-icons/ai";
 
-export function Navigation() {
+interface NavProps {
+  onback: (name: string) => void;
+}
+
+export function Navigation({ onback }: NavProps) {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
   const [selectId, setSelectId] = useState<number | null>(1);
   const [subSelectId, setSubSelectId] = useState<{
@@ -26,6 +30,20 @@ export function Navigation() {
     );
   };
 
+  // 工具：获取一个节点的第一个叶子名称（优先取最深的第一个子项）
+  const getFirstLeafName = (node: any): string => {
+    if (!node) return "";
+    if (Array.isArray(node.child) && node.child.length > 0) {
+      return getFirstLeafName(node.child[0]);
+    }
+    return node.name;
+  };
+
+  // 工具：判断子项是否被选中
+  const isChildSelected = (parentIndex: number, childIndex: number) =>
+    subSelectId?.parentIndex === parentIndex &&
+    subSelectId?.childIndex === childIndex;
+
   const navMainData = [
     {
       name: "数据仪表盘",
@@ -37,7 +55,14 @@ export function Navigation() {
       icon: <AiOutlineNodeIndex size={18} />,
       child: [
         { name: "预约挂号" },
-        { name: "医生工作站" },
+        {
+          name: "医生工作站",
+          child: [
+            { name: "接诊管理" },
+            { name: "电子病历" },
+            { name: "处方管理" },
+          ],
+        },
         { name: "门诊收费" },
         { name: "多元支付" },
       ],
@@ -99,8 +124,19 @@ export function Navigation() {
                 }`}
                 onClick={() => {
                   setSelectId(index);
-                  setSubSelectId({ parentIndex: index, childIndex: 0 }); // 重置子菜单选中状态
-                  item.child && item.child.length > 0 && toggleExpanded(index);
+                  // 重置子菜单选中状态（若存在子项，默认选中第一个子项）
+                  if (item.child && item.child.length > 0) {
+                    setSubSelectId({ parentIndex: index, childIndex: 0 });
+                    // 有子项：展开当前分组（保持原逻辑）
+                    item.child &&
+                      item.child.length > 0 &&
+                      toggleExpanded(index);
+                  } else {
+                    // 无子项：清空所有展开项，避免还能点击其他菜单子项
+                    setSubSelectId(null);
+                    setExpandedItems([]);
+                  }
+                  onback(getFirstLeafName(navMainData[index]));
                 }}
               >
                 <div className="flex flex-row justify-center items-center">
@@ -127,14 +163,15 @@ export function Navigation() {
                       <li
                         key={childIndex}
                         className={`w-full p-2 hover:bg-blue-50 hover:text-blue-600 cursor-pointer rounded-[5px] flex items-center gap-2 text-sm ${
-                          subSelectId?.parentIndex === index &&
-                          subSelectId?.childIndex === childIndex
+                          isChildSelected(index, childIndex)
                             ? "bg-blue-50 text-blue-700"
                             : ""
                         }`}
-                        onClick={() =>
-                          setSubSelectId({ parentIndex: index, childIndex })
-                        }
+                        onClick={() => {
+                          setSubSelectId({ parentIndex: index, childIndex });
+                          const target = navMainData[index].child[childIndex];
+                          onback(getFirstLeafName(target));
+                        }}
                       >
                         {childItem.name}
                       </li>

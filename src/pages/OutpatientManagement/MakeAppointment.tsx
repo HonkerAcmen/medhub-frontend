@@ -1,7 +1,7 @@
 export function MakeAppointment() {
   return (
     <div>
-      <div>111</div>
+      <div>预约挂号</div>
     </div>
   );
 }
