@@ -1,30 +1,26 @@
 import { Navigation } from "./_components/_Navigation";
 import { Header } from "./_components/_Header";
 import { MakeAppointment } from "./OutpatientManagement/MakeAppointment";
-import { AdmissionManageme } from "./OutpatientManagement/DoctorWorkstation/AdmissionManageme";
+import { DockerWork } from "./OutpatientManagement/DoctorWorkstation/DockerWork";
 import { useState, type ReactNode } from "react";
-import { ElectronicMedicalRecords } from "./OutpatientManagement/DoctorWorkstation/ElectronicMedicalRecords";
-import { PrescriptionManagement } from "./OutpatientManagement/DoctorWorkstation/PrescriptionManagement";
 
 export default function Home() {
   const [seleName, setSeleName] = useState("预约挂号");
   const viewMap: Record<string, ReactNode> = {
     预约挂号: <MakeAppointment />,
-    接诊管理: <AdmissionManageme />,
-    电子病历: <ElectronicMedicalRecords />,
-    处方管理: <PrescriptionManagement />,
+    医生工作站: <DockerWork />,
   };
+
   return (
     <div className="flex felx-row ">
       <Navigation
         onback={(name: string) => {
           setSeleName(name);
-          console.log("nav is :" + name);
         }}
       />
       <div className="w-full">
         <Header />
-        {viewMap[seleName] ?? "页面不存在"}
+        {viewMap[seleName.trim()] ?? null}
       </div>
     </div>
   );

@@ -55,14 +55,7 @@ export function Navigation({ onback }: NavProps) {
       icon: <AiOutlineNodeIndex size={18} />,
       child: [
         { name: "预约挂号" },
-        {
-          name: "医生工作站",
-          child: [
-            { name: "接诊管理" },
-            { name: "电子病历" },
-            { name: "处方管理" },
-          ],
-        },
+        { name: "医生工作站" },
         { name: "门诊收费" },
         { name: "多元支付" },
       ],
