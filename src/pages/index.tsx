@@ -409,7 +409,7 @@ export default function Home() {
               <p className="text-xl text-gray-500 mb-4">
                 {doctorMember.comment}
               </p>
-              <p className="text-lg text-gray-600 line-clamp-3 flex-grow">
+              <p className="text-lg text-gray-600 line-clamp-3 grow">
                 {doctorMember.desc}
               </p>
             </div>
