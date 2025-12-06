@@ -1,7 +1,7 @@
 import { Navigation } from "./_components/_Navigation";
 import { Header } from "./_components/_Header";
-import { MakeAppointment } from "../OutpatientManagement/MakeAppointment";
-import { DockerWork } from "../OutpatientManagement/DoctorWorkstation/DockerWork";
+import MakeAppointment from "../OutpatientManagement/MakeAppointment";
+import DockerWork from "../OutpatientManagement/DoctorWorkstation/DockerWork";
 import { useState, type ReactNode } from "react";
 
 export default function BackPage() {
