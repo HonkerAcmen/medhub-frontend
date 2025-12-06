@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 z-50 shadow-md bg-white w-full h-24 flex items-center justify-between px-4 md:px-8">
       <div className="flex flex-col justify-center items-center h-full cursor-pointer">
-        <h1 className=" text-blue-800 font-semibold text-2xl md:text-4xl p-0 m-0">
+        <h1 className=" text-[#4387b4] font-semibold text-2xl md:text-4xl p-0 m-0">
           康复医院
         </h1>
         <h2 className="text-gray-400 text-sm md:text-xl p-0 m-0">
