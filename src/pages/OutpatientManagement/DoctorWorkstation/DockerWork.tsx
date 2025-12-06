@@ -1,10 +1,10 @@
 import { Tabs } from "@/components/Tabs";
 import { ReactNode, useState } from "react";
-import { ElectronicMedicalRecords } from "./ElectronicMedicalRecords";
-import { PrescriptionManagement } from "./PrescriptionManagement";
-import { AdmissionManageme } from "./AdmissionManageme";
+import ElectronicMedicalRecords from "./ElectronicMedicalRecords";
+import PrescriptionManagement from "./PrescriptionManagement";
+import AdmissionManageme from "./AdmissionManageme";
 
-export function DockerWork() {
+export default function DockerWork() {
   const [seleName, setSeleName] = useState("预约挂号");
   const tabNames = ["接诊管理", "电子病历", "处方管理"];
   const viewMap: Record<string, ReactNode> = {

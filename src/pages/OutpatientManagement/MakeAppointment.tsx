@@ -1,4 +1,4 @@
-export function MakeAppointment() {
+export default function MakeAppointment() {
   return (
     <div>
       <div>预约挂号</div>
