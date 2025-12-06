@@ -26,7 +26,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-7xl font-semibold text-white m-3">
               欢迎来到
             </h1>
-            <h1 className="text-5xl md:text-7xl font-semibold text-white m-3">
+            <h1 className="text-5xl md:text-7xl font-semibold text-[#5ebfff] m-3">
               康复医院
             </h1>
           </span>
@@ -34,7 +34,7 @@ export default function Home() {
             我们致力于提供专业、温馨的医疗服务，守护您和家人的健康
           </p>
           <div>
-            <button className="text-xl h-15 w-28 bg-blue-800 md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-white m-3 cursor-pointer hover:scale-105 transition duration-300">
+            <button className="text-xl h-15 w-28 bg-[#4387b4] md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-white m-3 cursor-pointer hover:scale-105 transition duration-300">
               立即挂号
             </button>
             <button className="text-xl h-15 w-28 bg-white  md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-blue-800s  m-3 cursor-pointer hover:scale-105 transition duration-300">
