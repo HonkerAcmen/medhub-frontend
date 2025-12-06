@@ -39,21 +39,19 @@ export default function Header() {
   ];
   return (
     <header className="fixed top-0 z-50 shadow-md bg-white w-full h-24 flex items-center justify-between px-4 md:px-8">
-      <div className="flex  justify-center items-center h-full">
-        <div className="text-center">
-          <h1 className=" text-blue-800 font-semibold text-2xl md:text-3xl p-0 m-0">
-            康复医院
-          </h1>
-          <h2 className="text-gray-400 text-sm md:text-xl p-0 m-0">
-            前台服务中心
-          </h2>
-        </div>
+      <div className="flex flex-col  justify-center items-center h-full cursor-pointer">
+        <h1 className=" text-blue-800 font-semibold text-2xl md:text-4xl p-0 m-0">
+          康复医院
+        </h1>
+        <h2 className="text-gray-400 text-sm md:text-xl p-0 m-0">
+          前台服务中心
+        </h2>
       </div>
       <ul className="hidden md:flex items-center justify-center h-full">
         {headerTitles.map((v, i) => (
           <li
             key={i}
-            className="px-3 py-2 text-center text-xl hover:text-blue-800 transition-colors cursor-pointer"
+            className="px-3 py-2 text-center text-xl  hover:bg-gray-100 rounded-lg transition duration-200 cursor-pointer"
             onClick={v.onback}
           >
             {v.name}
