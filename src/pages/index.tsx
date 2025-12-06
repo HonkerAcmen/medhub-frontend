@@ -1,5 +1,11 @@
 import { useState } from "react";
 import Image from "next/image";
+import {
+  commonProblem,
+  departmentChoose,
+  departmentData,
+  doctorMember,
+} from "@/mock/homepage-data";
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
@@ -17,134 +23,7 @@ export default function Home() {
       behavior: "smooth",
     });
   };
-  const departmentData = [
-    {
-      title: "内科",
-      desc: "诊治呼吸系统、消化系统、心血管系统等内科疾病",
-      buttons: ["呼吸内科", "消化内科", "心内科"],
-    },
-    {
-      title: "外科",
-      desc: "开展普外科、骨科、神经外科等各类外科手术",
-      buttons: ["普外科", "骨科", "神经外科"],
-    },
-    {
-      title: "妇产科",
-      desc: "提供妇科疾病诊疗、产前检查、分娩等全方位服务",
-      buttons: ["妇科", "产科", "妇幼保健"],
-    },
-    {
-      title: "儿科",
-      desc: "专注儿童健康，提供全面的儿科疾病诊疗服务",
-      buttons: ["小儿内科", "小儿外科", "儿童保健"],
-    },
-    {
-      title: "眼科",
-      desc: "诊治各类眼科疾病，提供专业的视力矫正服务",
-      buttons: ["眼底病", "白内障", "近视矫正"],
-    },
-    {
-      title: "口腔科",
-      desc: "提供口腔疾病诊疗、牙齿美容、口腔修复等服务",
-      buttons: ["口腔内科", "口腔外科", "牙齿美容"],
-    },
-    {
-      title: "皮肤科",
-      desc: "诊治各类皮肤疾病，提供专业的皮肤护理建议",
-      buttons: ["皮炎", "湿疹", "痤疮"],
-    },
-    {
-      title: "精神心理科",
-      desc: "提供心理健康评估、心理咨询和治疗服务",
-      buttons: ["心理咨询", "抑郁症", "焦虑障碍"],
-    },
-  ];
-  const doctorMember = [
-    {
-      name: "张医生",
-      comment: "内科|主任医师",
-      desc: "从事心血管疾病诊疗工作20余年，擅长冠心病、心力衰竭等疾病的诊治",
-    },
-    {
-      name: "李医生",
-      comment: "神经内科 | 副主任医师",
-      desc: "专注于脑血管疾病和神经系统疾病的诊断与治疗，具有丰富的临床经验",
-    },
-    {
-      name: "王医生",
-      comment: "妇产科 | 主任医师",
-      desc: "从事妇产科临床工作25年，擅长妇科肿瘤、不孕不育等疑难疾病的诊治",
-    },
-    {
-      name: "赵医生",
-      comment: "骨科 | 主任医师",
-      desc: "专注于骨关节疾病的诊断与治疗，尤其在关节置换和脊柱疾病方面有丰富经验",
-    },
-  ];
-  const departmentChoose = [
-    {
-      name: "内科",
-      desc: "呼吸系统、消化系统、心血管系统等",
-    },
-    {
-      name: "外科",
-      desc: "普外科、骨科、神经外科等",
-    },
-    {
-      name: "妇产科",
-      desc: "妇科疾病、产前检查、分娩等",
-    },
-    {
-      name: "儿科",
-      desc: "儿童疾病、儿童保健等",
-    },
-    {
-      name: "眼科",
-      desc: "眼部疾病、视力矫正等",
-    },
-    {
-      name: "口腔科",
-      desc: "口腔疾病、牙齿美容等",
-    },
-  ];
-  const commonProblem = [
-    {
-      id: 1,
-      problem: "如何预约挂号？",
-      answer:
-        "您可以通过以下方式预约挂号:1. 在本网站的“在线挂号”页面进行预约;2. 拨打医院预约电话;3. 到医院前台现场挂号;4. 使用医院官方APP进行预约。",
-    },
-    {
-      id: 2,
-      problem: "预约后需要提前多久到达医院？",
-      answer:
-        "建议您在预约时间前30分钟到达医院，携带有效证件（身份证、医保卡等）到相应科室的候诊区等候。如有特殊情况无法按时就诊，请提前24小时取消或更改预约。",
-    },
-    {
-      id: 3,
-      problem: "如何查询检查结果？",
-      answer:
-        "检查结果出来后，您可以通过以下方式查询：1. 登录医院官网或APP查询；2. 到医院自助报告机打印；3. 到相应科室护士站领取；4. 部分检查结果会直接发送给您的主治医生，您可以在复诊时咨询医生。",
-    },
-    {
-      id: 4,
-      problem: "医院是否支持医保报销？",
-      answer:
-        "我院支持多种医保类型，包括城镇职工医保、城乡居民医保、新农合等。就诊时请携带医保卡和有效身份证件，在结算时可以直接享受医保报销。具体报销比例和范围请咨询医院医保办或您的医保机构。",
-    },
-    {
-      id: 5,
-      problem: "如何取消或更改预约？",
-      answer:
-        "您可以通过以下方式取消或更改预约：1. 登录医院官网或APP，在“我的预约”中操作；2. 拨打医院预约电话进行取消或更改；3. 到医院前台办理取消或更改手续。为了合理利用医疗资源，建议您提前24小时取消或更改预约",
-    },
-    {
-      id: 6,
-      problem: "医院的就诊时间时怎样的？",
-      answer:
-        "我院门诊时间为周一至周五上午8:00-12:00，下午14:00-18:00；周六、周日上午8:00-12:00，下午休息。急诊科24小时接诊。部分科室可能有特殊的就诊时间，请在预约前查看科室详情或咨询医院客服。",
-    },
-  ];
+
   return (
     <div className="min-h-screen min-w-2xl bg-white">
       <header className="fixed top-0 z-50 shadow-md bg-white w-full h-24 flex items-center justify-between px-4 md:px-8">
