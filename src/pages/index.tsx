@@ -16,26 +16,31 @@ export default function Home() {
       <Header />
       <div
         id="home"
-        className="w-full h-screen bg-gray-200 flex items-center p-4 pt-24 md:p-16 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/bg.png')",
+        }}
+        className="w-full h-screen md:bg-cover bg-center flex flex-col "
       >
-        <div className="w-full max-w-5xl mx-auto">
-          <span className="flex">
+        <div className="w-full max-w-5xl h-full flex flex-col justify-center ml-4">
+          <span className="flex border border-gray-500 w-160 bg-black/60 rounded-lg">
             <h1 className="text-5xl md:text-7xl font-semibold text-white m-3">
               欢迎来到
             </h1>
-            <h1 className="text-5xl md:text-7xl font-semibold text-blue-800 m-3">
+            <h1 className="text-5xl md:text-7xl font-semibold text-white m-3">
               康复医院
             </h1>
           </span>
-          <p className="text-2xl md:text-4xl m-3 text-nowrap">
+          <p className="text-2xl md:text-4xl m-3 text-nowrap text-white bg-black/60 rounded-lg border border-gray-500 px-4 py-2">
             我们致力于提供专业、温馨的医疗服务，守护您和家人的健康
           </p>
-          <button className="text-xl h-15 w-28 bg-blue-800 md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-white m-3">
-            立即挂号
-          </button>
-          <button className="text-xl h-15 w-28 bg-white  md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-blue-800s  m-3">
-            专业医师
-          </button>
+          <div>
+            <button className="text-xl h-15 w-28 bg-blue-800 md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-white m-3 cursor-pointer hover:scale-105 transition duration-300">
+              立即挂号
+            </button>
+            <button className="text-xl h-15 w-28 bg-white  md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-blue-800s  m-3 cursor-pointer hover:scale-105 transition duration-300">
+              专业医师
+            </button>
+          </div>
         </div>
       </div>
 
