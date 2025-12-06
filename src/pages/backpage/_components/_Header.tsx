@@ -6,7 +6,7 @@ import {
   AiOutlineSearch,
 } from "react-icons/ai";
 
-export function Header() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 

@@ -15,7 +15,7 @@ interface NavProps {
   onback: (name: string) => void;
 }
 
-export function Navigation({ onback }: NavProps) {
+export default function Navigation({ onback }: NavProps) {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
   const [selectId, setSelectId] = useState<number | null>(1);
   const [subSelectId, setSubSelectId] = useState<{
