@@ -6,128 +6,14 @@ import {
   departmentData,
   doctorMember,
 } from "@/mock/homepage-data";
+import Header from "./_components/Header";
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [activeQuestionId, setActiveQuestionId] = useState<number | null>(null);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const headerHeight = 96; // 顶部固定导航高度 h-24 = 96px
-    const elementTop = element.getBoundingClientRect().top + window.scrollY;
-    const target = elementTop - headerHeight - 16; // 额外预留一点上边距
-
-    window.scrollTo({
-      top: target < 0 ? 0 : target,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className="min-h-screen min-w-2xl bg-white">
-      <header className="fixed top-0 z-50 shadow-md bg-white w-full h-24 flex items-center justify-between px-4 md:px-8">
-        <div className="flex  justify-center items-center h-full">
-          <div className="text-center">
-            <h1 className=" text-blue-800 font-semibold text-2xl md:text-3xl p-0 m-0">
-              康复医院
-            </h1>
-            <h2 className="text-gray-400 text-sm md:text-xl p-0 m-0">
-              前台服务中心
-            </h2>
-          </div>
-        </div>
-        <ul className="hidden md:flex items-center justify-center h-full">
-          <li
-            className="px-3 py-2 text-center text-xl hover:text-blue-800 transition-colors cursor-pointer"
-            onClick={() => scrollToSection("home")}
-          >
-            首页
-          </li>
-          <li
-            className="px-3 py-2 text-center text-xl hover:text-blue-800 transition-colors cursor-pointer"
-            onClick={() => scrollToSection("departments")}
-          >
-            科室导航
-          </li>
-          <li
-            className="px-3 py-2 text-center text-xl hover:text-blue-800 transition-colors cursor-pointer"
-            onClick={() => scrollToSection("online-register")}
-          >
-            在线挂号
-          </li>
-          <li
-            className="px-3 py-2 text-center text-xl hover:text-blue-800 transition-colors cursor-pointer"
-            onClick={() => scrollToSection("faq")}
-          >
-            常见问题
-          </li>
-          <li
-            className="px-3 py-2 text-center text-xl hover:text-blue-800 transition-colors cursor-pointer"
-            onClick={() => scrollToSection("contact")}
-          >
-            联系我们
-          </li>
-        </ul>
-        <button
-          className="md:hidden flex items-center justify-center w-12 h-12 text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "关闭菜单" : "打开菜单"}
-        >
-          {menuOpen ? "X" : "☰"}
-        </button>
-      </header>
-      {menuOpen && (
-        <div className="fixed top-24 left-0 z-40 w-full bg-white shadow-lg md:hidden transition-all duration-300">
-          <ul className="flex flex-col items-center py-4">
-            <li
-              className="w-full text-center py-3 text-xl hover:bg-gray-100 transition-colors cursor-pointer"
-              onClick={() => {
-                scrollToSection("home");
-                setMenuOpen(false);
-              }}
-            >
-              首页
-            </li>
-            <li
-              className="w-full text-center py-3 text-xl hover:bg-gray-100 transition-colors cursor-pointer"
-              onClick={() => {
-                scrollToSection("departments");
-                setMenuOpen(false);
-              }}
-            >
-              科室导航
-            </li>
-            <li
-              className="w-full text-center py-3 text-xl hover:bg-gray-100 transition-colors cursor-pointer"
-              onClick={() => {
-                scrollToSection("online-register");
-                setMenuOpen(false);
-              }}
-            >
-              在线挂号
-            </li>
-            <li
-              className="w-full text-center py-3 text-xl hover:bg-gray-100 transition-colors cursor-pointer"
-              onClick={() => {
-                scrollToSection("faq");
-                setMenuOpen(false);
-              }}
-            >
-              常见问题
-            </li>
-            <li
-              className="w-full text-center py-3 text-xl hover:bg-gray-100 transition-colors cursor-pointer"
-              onClick={() => {
-                scrollToSection("contact");
-                setMenuOpen(false);
-              }}
-            >
-              联系我们
-            </li>
-          </ul>
-        </div>
-      )}
+      <Header />
       <div
         id="home"
         className="w-full h-screen bg-gray-200 flex items-center p-4 pt-24 md:p-16 bg-cover bg-center"
@@ -141,7 +27,7 @@ export default function Home() {
               康复医院
             </h1>
           </span>
-          <p className="text-2xl md:text-4xl m-3">
+          <p className="text-2xl md:text-4xl m-3 text-nowrap">
             我们致力于提供专业、温馨的医疗服务，守护您和家人的健康
           </p>
           <button className="text-xl h-15 w-28 bg-blue-800 md:h-20 md:w-50 md:text-2xl rounded-2xl  font-semibold text-white m-3">
