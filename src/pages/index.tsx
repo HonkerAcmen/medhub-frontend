@@ -13,7 +13,7 @@ import Header from "./_components/Header";
 type DeptType = "全部" | "内科" | "外科" | "特色专科";
 
 export default function Home() {
-  // ================= 状态管理 =================
+  // ================= 状态管理 ==================
 
   // 1. 科室筛选状态
   const [activeDept, setActiveDept] = useState<DeptType>("全部");
